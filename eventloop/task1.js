@@ -26,3 +26,10 @@ function main() {
 }
 
 main();
+//java is synchronous and single-threaded language. It executes the code line by line. It is a blocking language.
+//in asynchronous we use event loop to manage the call stack
+// asynchronous using timers 
+// 1. set time out
+// 2. set immediate
+// 3.process .nesxttick
+// 4.setInternal
