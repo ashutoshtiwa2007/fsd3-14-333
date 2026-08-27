@@ -4,7 +4,7 @@
   "description": "HTTP-Hyper text transfer protocol\r html-hyper text markup language \r css- cascade style sheet\r npm node package manager",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon prg2.js",
+    "dev": "nodemon prg8.js",
     "start":"node app.js"
   },
   "keywords": [],

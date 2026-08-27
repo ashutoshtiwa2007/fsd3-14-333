@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YELLO — Premium Yellow Shirt</title>
+
+    <style>
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Poppins, Arial, sans-serif;
+            background: #f8f7f3;
+            color: #171717;
+            line-height: 1.6;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(248, 247, 243, 0.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #e4b900;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #111;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-icon {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid #ddd;
+            border-radius: 50%;
+
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            transition: 0.3s;
+        }
+
+        .nav-icon:hover {
+            background: #111;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -3px;
+
+            width: 17px;
+            height: 17px;
+
+            border-radius: 50%;
+            background: #e5b900;
+            color: #111;
+
+            font-size: 10px;
+            font-weight: bold;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: 1300px;
+            margin: 45px auto 80px;
+            padding: 0 25px;
+
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        /* =========================
+           PRODUCT VISUAL
+        ========================= */
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            height: 680px;
+
+            border-radius: 30px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    #fff6bd 0%,
+                    #f5e6a0 32%,
+                    #e8dcae 62%,
+                    #ddd9cc 100%
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 30px 70px rgba(0, 0, 0, 0.12);
+
+            transition: 0.5s;
+        }
+
+        .main-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .shirt {
+            position: relative;
+            width: 350px;
+            height: 430px;
+
+            background: linear-gradient(
+                135deg,
+                #ffd82f,
+                #f2c400
+            );
+
+            border-radius: 25px 25px 35px 35px;
+
+            box-shadow:
+                25px 35px 40px rgba(89, 72, 0, 0.2);
+
+            transform: perspective(900px) rotateY(-8deg);
+
+            transition: 0.6s;
+        }
+
+        .main-image:hover .shirt {
+            transform:
+                perspective(900px)
+                rotateY(-2deg)
+                scale(1.04);
+        }
+
+        /* Shirt sleeves */
+
+        .shirt::before {
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 155px;
+
+            left: -125px;
+            top: 30px;
+
+            background: #f5ca16;
+
+            clip-path: polygon(
+                65% 0,
+                100% 20%,
+                75% 100%,
+                0 65%
+            );
+
+            transform: rotate(-4deg);
+        }
+
+        .shirt::after {
+            content: "";
+
+            position: absolute;
+
+            width: 170px;
+            height: 155px;
+
+            right: -125px;
+            top: 30px;
+
+            background: #f5ca16;
+
+            clip-path: polygon(
+                35% 0,
+                100% 65%,
+                25% 100%,
+                0 20%
+            );
+
+            transform: rotate(4deg);
+        }
+
+        .collar {
+            position: absolute;
+
+            top: -1px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 110px;
+            height: 80px;
+
+            background: #e9bc00;
+
+            clip-path: polygon(
+                0 0,
+                50% 70%,
+                100% 0,
+                80% 100%,
+                50% 70%,
+                20% 100%
+            );
+        }
+
+        .shirt-line {
+            position: absolute;
+
+            top: 55px;
+            bottom: 0;
+
+            left: 50%;
+
+            width: 2px;
+
+            background: rgba(126, 99, 0, 0.25);
+        }
+
+        .button {
+            position: absolute;
+
+            left: calc(50% - 4px);
+
+            width: 8px;
+            height: 8px;
+
+            background: #fff3b0;
+
+            border: 1px solid #b28d00;
+
+            border-radius: 50%;
+        }
+
+        .button:nth-child(4) {
+            top: 110px;
+        }
+
+        .button:nth-child(5) {
+            top: 160px;
+        }
+
+        .button:nth-child(6) {
+            top: 210px;
+        }
+
+        .button:nth-child(7) {
+            top: 260px;
+        }
+
+        .button:nth-child(8) {
+            top: 310px;
+        }
+
+        .pocket {
+            position: absolute;
+
+            right: 45px;
+            top: 135px;
+
+            width: 65px;
+            height: 75px;
+
+            border: 2px solid rgba(146, 112, 0, 0.2);
+
+            border-radius: 4px;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .thumb {
+            width: 82px;
+            height: 82px;
+
+            border-radius: 15px;
+
+            border: 2px solid transparent;
+
+            background: #eee7ce;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s;
+        }
+
+        .thumb.active {
+            border-color: #111;
+        }
+
+        .mini-shirt {
+            width: 45px;
+            height: 52px;
+
+            background: #f4c600;
+
+            border-radius: 7px;
+        }
+
+        .thumb:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           PRODUCT INFORMATION
+        ========================= */
+
+        .product-info {
+            animation: fadeUp 0.8s ease;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            background: #111;
+            color: white;
+
+            border-radius: 50px;
+
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+
+            margin-bottom: 20px;
+        }
+
+        .product-info h1 {
+            font-size: clamp(42px, 5vw, 70px);
+
+            line-height: 0.98;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 22px;
+        }
+
+        .product-info h1 span {
+            color: #d9ac00;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 22px;
+        }
+
+        .stars {
+            color: #e4b500;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .reviews {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+
+            margin-bottom: 25px;
+        }
+
+        .sale-price {
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 18px;
+        }
+
+        .discount {
+            background: #e5f2bd;
+            color: #426000;
+
+            padding: 5px 9px;
+
+            border-radius: 6px;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .description {
+            color: #666;
+
+            max-width: 540px;
+
+            margin-bottom: 28px;
+        }
+
+        .selector-title {
+            font-size: 13px;
+            font-weight: 800;
+
+            margin-bottom: 12px;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           SIZE
+        ========================= */
+
+        .sizes {
+            display: flex;
+            gap: 9px;
+
+            margin-bottom: 25px;
+        }
+
+        .size {
+            width: 50px;
+            height: 45px;
+
+            background: white;
+
+            border: 1px solid #ddd;
+
+            border-radius: 9px;
+
+            transition: 0.25s;
+        }
+
+        .size:hover,
+        .size.selected {
+            background: #111;
+            color: white;
+            border-color: #111;
+        }
+
+        /* =========================
+           COLOR
+        ========================= */
+
+        .color-section {
+            margin-bottom: 25px;
+        }
+
+        .color {
+            width: 30px;
+            height: 30px;
+
+            background: #f4c400;
+
+            border-radius: 50%;
+
+            border: 3px solid white;
+
+            outline: 2px solid #111;
+        }
+
+        /* =========================
+           QUANTITY
+        ========================= */
+
+        .quantity {
+            display: flex;
+            align-items: center;
+
+            width: fit-content;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            background: white;
+
+            overflow: hidden;
+
+            margin-bottom: 22px;
+        }
+
+        .quantity button {
+            width: 45px;
+            height: 42px;
+
+            border: none;
+
+            background: white;
+
+            font-size: 20px;
+        }
+
+        .quantity span {
+            width: 45px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .add-cart,
+        .buy-now {
+            height: 58px;
+
+            border-radius: 12px;
+
+            font-weight: 800;
+
+            transition: 0.3s;
+        }
+
+        .add-cart {
+            flex: 1;
+
+            border: none;
+
+            background: #111;
+            color: white;
+        }
+
+        .add-cart:hover {
+            background: #e4b900;
+            color: #111;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 12px 25px rgba(228, 185, 0, 0.25);
+        }
+
+        .buy-now {
+            width: 145px;
+
+            background: white;
+
+            border: 1px solid #111;
+        }
+
+        .buy-now:hover {
+            background: #f4c400;
+            border-color: #f4c400;
+
+            transform: translateY(-3px);
+        }
+
+        .shipping-note {
+            display: flex;
+            gap: 25px;
+
+            margin-top: 28px;
+
+            color: #666;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features-section {
+            background: #111;
+            color: white;
+
+            padding: 65px 7%;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .feature {
+            padding: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-icon {
+            font-size: 27px;
+
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .feature p {
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        /* =========================
+           PRODUCT DETAILS
+        ========================= */
+
+        .section {
+            max-width: 1150px;
+
+            margin: 90px auto;
+
+            padding: 0 25px;
+        }
+
+        .section-heading {
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+        .section-heading small {
+            color: #c39a00;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .section-heading h2 {
+            font-size: 42px;
+
+            letter-spacing: -2px;
+
+            margin-top: 8px;
+        }
+
+        .details-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .detail-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            border: 1px solid #e9e6dd;
+
+            transition: 0.3s;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+        }
+
+        .detail-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .detail-card p {
+            color: #666;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================= */
+
+        .reviews-section {
+            background: #eeece5;
+
+            padding: 90px 25px;
+        }
+
+        .review-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .review-summary {
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 40px;
+
+            margin-bottom: 25px;
+        }
+
+        .big-rating {
+            font-size: 60px;
+            font-weight: 900;
+        }
+
+        .review-cards {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .review {
+            background: white;
+
+            padding: 28px;
+
+            border-radius: 18px;
+
+            transition: 0.3s;
+        }
+
+        .review:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-stars {
+            color: #e4b500;
+
+            margin-bottom: 15px;
+        }
+
+        .review p {
+            color: #666;
+
+            font-size: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .review-user {
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        /* =========================
+           RELATED PRODUCTS
+        ========================= */
+
+        .products {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+
+            border-radius: 18px;
+
+            padding: 12px;
+
+            border: 1px solid #e9e6dd;
+
+            transition: 0.4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09);
+        }
+
+        .card-image {
+            height: 260px;
+
+            border-radius: 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eee8d2;
+
+            margin-bottom: 15px;
+
+            overflow: hidden;
+        }
+
+        .card-shirt {
+            width: 125px;
+            height: 160px;
+
+            border-radius: 15px;
+
+            background: #f3c800;
+
+            transition: 0.4s;
+        }
+
+        .product-card:hover .card-shirt {
+            transform: scale(1.08) rotate(-2deg);
+        }
+
+        .card-info {
+            padding: 8px;
+        }
+
+        .card-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .card-rating {
+            color: #e2b400;
+
+            font-size: 13px;
+        }
+
+        .card-price {
+            font-weight: 800;
+
+            margin: 8px 0 13px;
+        }
+
+        .card-button {
+            width: 100%;
+
+            padding: 11px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #111;
+
+            color: white;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .card-button:hover {
+            background: #e4b900;
+            color: #111;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #111;
+
+            color: white;
+
+            padding: 70px 7% 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+        }
+
+        footer h2 {
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        footer h2 span {
+            color: #e4b900;
+        }
+
+        footer p {
+            color: #999;
+
+            font-size: 14px;
+
+            max-width: 300px;
+        }
+
+        footer h4 {
+            margin-bottom: 18px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 10px;
+
+            color: #999;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        footer li:hover {
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #292929;
+
+            padding-top: 25px;
+
+            text-align: center;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+
+            bottom: 25px;
+            right: 25px;
+
+            background: #111;
+            color: white;
+
+            padding: 16px 22px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+            transform: translateY(100px);
+
+            opacity: 0;
+
+            transition: 0.4s;
+
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+
+            opacity: 1;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .main-image {
+                height: 550px;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                margin-top: 25px;
+            }
+
+            .main-image {
+                height: 430px;
+            }
+
+            .shirt {
+                width: 240px;
+                height: 300px;
+            }
+
+            .shirt::before,
+            .shirt::after {
+                width: 120px;
+                height: 120px;
+            }
+
+            .shirt::before {
+                left: -85px;
+            }
+
+            .shirt::after {
+                right: -85px;
+            }
+
+            .product-info h1 {
+                font-size: 48px;
+                letter-spacing: -2px;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .buy-now {
+                width: 100%;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .review-summary {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .review-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="navbar">
+
+    <a href="#" class="logo">
+        YELL<span>O</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#product">Shop</a></li>
+        <li><a href="#related">Collections</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+
+    <div class="nav-icons">
+
+        <button class="nav-icon">
+            ⌕
+        </button>
+
+        <button class="nav-icon cart-icon">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     PRODUCT HERO
+========================= -->
+
+<main id="product">
+
+    <section class="hero">
+
+        <!-- PRODUCT IMAGE -->
+
+        <div class="product-gallery">
+
+            <div class="main-image">
+
+                <div class="shirt">
+
+                    <div class="collar"></div>
+
+                    <div class="shirt-line"></div>
+
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+                    <div class="button"></div>
+
+                    <div class="pocket"></div>
+
+                </div>
+
+            </div>
+
+            <div class="gallery-thumbs">
+
+                <button class="thumb active">
+                    <div class="mini-shirt"></div>
+                </button>
+
+                <button class="thumb">
+                    <div
+                        class="mini-shirt"
+                        style="transform: rotate(8deg);">
+                    </div>
+                </button>
+
+                <button class="thumb">
+                    <div
+                        class="mini-shirt"
+                        style="transform: scale(.8);">
+                    </div>
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT INFORMATION -->
+
+        <div class="product-info">
+
+            <span class="badge">
+                NEW ARRIVAL
+            </span>
+
+            <h1>
+                Premium<br>
+                <span>Yellow</span> Shirt
+            </h1>
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <span class="reviews">
+                    4.9 · 128 Reviews
+                </span>
+
+            </div>
+
+            <div class="price">
+
+                <span class="sale-price">
+                    ₹1,799
+                </span>
+
+                <span class="old-price">
+                    ₹2,499
+                </span>
+
+                <span class="discount">
+                    28% OFF
+                </span>
+
+            </div>
+
+            <p class="description">
+                A statement piece designed for effortless everyday style.
+                Crafted from premium breathable cotton with a relaxed,
+                modern silhouette and a rich sunshine-yellow finish.
+            </p>
+
+
+            <!-- SIZE -->
+
+            <div class="selector-title">
+                Select Size
+            </div>
+
+            <div class="sizes">
+
+                <button class="size">S</button>
+                <button class="size selected">M</button>
+                <button class="size">L</button>
+                <button class="size">XL</button>
+                <button class="size">XXL</button>
+
+            </div>
+
+
+            <!-- COLOR -->
+
+            <div class="color-section">
+
+                <div class="selector-title">
+                    Color — Yellow
+                </div>
+
+                <div class="color"></div>
+
+            </div>
+
+
+            <!-- QUANTITY -->
+
+            <div class="selector-title">
+                Quantity
+            </div>
+
+            <div class="quantity">
+
+                <button onclick="changeQuantity(-1)">
+                    −
+                </button>
+
+                <span id="quantity">
+                    1
+                </span>
+
+                <button onclick="changeQuantity(1)">
+                    +
+                </button>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+
+            <div class="actions">
+
+                <button
+                    class="add-cart"
+                    onclick="addToCart()">
+
+                    Add to Cart
+
+                </button>
+
+                <button
+                    class="buy-now"
+                    onclick="buyNow()">
+
+                    Buy Now
+
+                </button>
+
+            </div>
+
+
+            <div class="shipping-note">
+
+                <span>✓ Free Delivery</span>
+
+                <span>↻ 15-Day Returns</span>
+
+                <span>🔒 Secure Payment</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FEATURES
+========================= -->
+
+<section class="features-section">
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ✦
+            </div>
+
+            <h3>
+                Premium Cotton
+            </h3>
+
+            <p>
+                Soft, lightweight and comfortable fabric.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ◌
+            </div>
+
+            <h3>
+                Breathable Fabric
+            </h3>
+
+            <p>
+                Designed to keep you comfortable all day.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ◇
+            </div>
+
+            <h3>
+                Regular Fit
+            </h3>
+
+            <p>
+                A modern silhouette with effortless movement.
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <h3>
+                Easy Returns
+            </h3>
+
+            <p>
+                Simple 15-day return and exchange policy.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PRODUCT DETAILS
+========================= -->
+
+<section class="section" id="about">
+
+    <div class="section-heading">
+
+        <small>
+            THE DETAILS
+        </small>
+
+        <h2>
+            Made for everyday.
+        </h2>
+
+    </div>
+
+
+    <div class="details-grid">
+
+        <div class="detail-card">
+
+            <h3>
+                Description
+            </h3>
+
+            <p>
+                Designed with a clean silhouette and premium finish,
+                this yellow shirt brings a confident pop of color to
+                your everyday wardrobe.
+            </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h3>
+                Material & Care
+            </h3>
+
+            <p>
+                100% premium cotton. Machine wash cold with similar
+                colors. Do not bleach. Iron on low heat.
+            </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h3>
+                Size Guide
+            </h3>
+
+            <p>
+                S — 36" chest · M — 38" · L — 40" · XL — 42" ·
+                XXL — 44".
+            </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+            <h3>
+                Shipping & Returns
+            </h3>
+
+            <p>
+                Free standard delivery and easy 15-day returns.
+                Orders are carefully packed before dispatch.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section class="reviews-section">
+
+    <div class="review-container">
+
+        <div class="section-heading">
+
+            <small>
+                CUSTOMER LOVE
+            </small>
+
+            <h2>
+                What people say.
+            </h2>
+
+        </div>
+
+
+        <div class="review-summary">
+
+            <div>
+
+                <div class="big-rating">
+                    4.9
+                </div>
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    Excellent Product
+                </h3>
+
+                <p>
+                    Based on 128 verified customer reviews
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="review-cards">
+
+            <div class="review">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "The color is even better in person. The fabric
+                    feels premium and the fit is perfect."
+                </p>
+
+                <div class="review-user">
+                    — Arjun M.
+                </div>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Really clean design. I wore it with black
+                    trousers and sneakers and it looked amazing."
+                </p>
+
+                <div class="review-user">
+                    — Rohan K.
+                </div>
+
+            </div>
+
+
+            <div class="review">
+
+                <div class="review-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+                    "Super comfortable and the yellow isn't too
+                    bright. Definitely one of my favorite shirts."
+                </p>
+
+                <div class="review-user">
+                    — Karan S.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RELATED PRODUCTS
+========================= -->
+
+<section class="section" id="related">
+
+    <div class="section-heading">
+
+        <small>
+            COMPLETE THE LOOK
+        </small>
+
+        <h2>
+            You may also like.
+        </h2>
+
+    </div>
+
+
+    <div class="products">
+
+        <div class="product-card">
+
+            <div class="card-image">
+
+                <div
+                    class="card-shirt"
+                    style="background:#111;">
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>
+                    Essential Black Shirt
+                </h3>
+
+                <div class="card-rating">
+                    ★★★★★
+                </div>
+
+                <div class="card-price">
+                    ₹1,599
+                </div>
+
+                <button
+                    class="card-button"
+                    onclick="quickAdd('Essential Black Shirt')">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div
+                class="card-image"
+                style="background:#e8e8e8;">
+
+                <div
+                    class="card-shirt"
+                    style="background:#f8f8f8;">
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>
+                    Classic White Shirt
+                </h3>
+
+                <div class="card-rating">
+                    ★★★★★
+                </div>
+
+                <div class="card-price">
+                    ₹1,699
+                </div>
+
+                <button
+                    class="card-button"
+                    onclick="quickAdd('Classic White Shirt')">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div
+                class="card-image"
+                style="background:#dcd2bc;">
+
+                <div
+                    class="card-shirt"
+                    style="background:#8d7652;">
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>
+                    Earth Tone Shirt
+                </h3>
+
+                <div class="card-rating">
+                    ★★★★☆
+                </div>
+
+                <div class="card-price">
+                    ₹1,899
+                </div>
+
+                <button
+                    class="card-button"
+                    onclick="quickAdd('Earth Tone Shirt')">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <div
+                class="card-image"
+                style="background:#d9e5e7;">
+
+                <div
+                    class="card-shirt"
+                    style="background:#4e9da6;">
+                </div>
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>
+                    Ocean Blue Shirt
+                </h3>
+
+                <div class="card-rating">
+                    ★★★★★
+                </div>
+
+                <div class="card-price">
+                    ₹1,799
+                </div>
+
+                <button
+                    class="card-button"
+                    onclick="quickAdd('Ocean Blue Shirt')">
+
+                    Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div>
+
+            <h2>
+                YELL<span>O</span>
+            </h2>
+
+            <p>
+                Modern essentials designed for people who
+                believe everyday clothing should never be boring.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Shop
+            </h4>
+
+            <ul>
+                <li>New Arrivals</li>
+                <li>Shirts</li>
+                <li>T-Shirts</li>
+                <li>Accessories</li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Help
+            </h4>
+
+            <ul>
+                <li>Contact Us</li>
+                <li>Shipping</li>
+                <li>Returns</li>
+                <li>Size Guide</li>
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Follow
+            </h4>
+
+            <ul>
+                <li>Instagram</li>
+                <li>Facebook</li>
+                <li>Twitter</li>
+                <li>Pinterest</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 YELLO. All rights reserved.
+    </div>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+
+    Product added to cart ✓
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    let quantity = 1;
+    let cart = 0;
+
+
+    /* SIZE SELECTION */
+
+    const sizes = document.querySelectorAll(".size");
+
+    sizes.forEach(size => {
+
+        size.addEventListener("click", () => {
+
+            sizes.forEach(s => {
+                s.classList.remove("selected");
+            });
+
+            size.classList.add("selected");
+
+        });
+
+    });
+
+
+    /* QUANTITY */
+
+    function changeQuantity(value) {
+
+        quantity += value;
+
+        if (quantity < 1) {
+            quantity = 1;
+        }
+
+        if (quantity > 10) {
+            quantity = 10;
+        }
+
+        document.getElementById("quantity").textContent = quantity;
+    }
+
+
+    /* ADD TO CART */
+
+    function addToCart() {
+
+        cart += quantity;
+
+        document.getElementById("cartCount").textContent = cart;
+
+        showToast(
+            quantity + " item" +
+            (quantity > 1 ? "s" : "") +
+            " added to cart ✓"
+        );
+
+    }
+
+
+    /* BUY NOW */
+
+    function buyNow() {
+
+        showToast(
+            "Proceeding to checkout..."
+        );
+
+    }
+
+
+    /* RELATED PRODUCT */
+
+    function quickAdd(product) {
+
+        cart++;
+
+        document.getElementById("cartCount").textContent = cart;
+
+        showToast(
+            product + " added to cart ✓"
+        );
+
+    }
+
+
+    /* TOAST */
+
+    function showToast(message) {
+
+        const toast =
+            document.getElementById("toast");
+
+        toast.textContent = message;
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 2500);
+
+    }
+
+
+    /* GALLERY */
+
+    const thumbs =
+        document.querySelectorAll(".thumb");
+
+    thumbs.forEach((thumb, index) => {
+
+        thumb.addEventListener("click", () => {
+
+            thumbs.forEach(t => {
+                t.classList.remove("active");
+            });
+
+            thumb.classList.add("active");
+
+            const shirt =
+                document.querySelector(".shirt");
+
+            if (index === 0) {
+
+                shirt.style.transform =
+                    "perspective(900px) rotateY(-8deg)";
+
+            }
+
+            if (index === 1) {
+
+                shirt.style.transform =
+                    "perspective(900px) rotateY(10deg)";
+
+            }
+
+            if (index === 2) {
+
+                shirt.style.transform =
+                    "perspective(900px) rotateY(0deg) scale(1.08)";
+
+            }
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>
