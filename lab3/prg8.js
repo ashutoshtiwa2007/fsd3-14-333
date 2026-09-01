@@ -9,10 +9,12 @@ const server = http.createServer(async (req, res) => {
     const text = await readFile("big.txt");
     res.end(text);
 }else if(req.url === "/product"){
-    // res.writehead() status + content -tyoe
+    // res.writehead() status + content -type
     res.setHeader("content-type","text/html")
     const data =createReadStream("product.html");
     data.pipe(res);
+}else {
+  res.end("<H1>Home page</H1>")
 }
 
 

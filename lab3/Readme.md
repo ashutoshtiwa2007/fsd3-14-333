@@ -23,3 +23,4 @@ api generallly start with api/version/something eg /api/v/product
 /api/v/user
 /api/v/product?s=user
 by default browser can only check get to check other type post put patch delete we require frontend or third party api tester like postman thinder client echoapi
+we have used html json and palin text files as routes
