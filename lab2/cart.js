@@ -22,7 +22,7 @@ const addToCart = async (product) => {
     };
 }
 
-const dispklayCart = async () => {
+const displayCart = async () => {
     const cart = await getCart();
     if (cart.length === 0) {
         console.log("Cart is empty.");
