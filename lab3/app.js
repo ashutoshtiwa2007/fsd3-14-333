@@ -3,7 +3,7 @@ import http from "http"
 
 const server = http.createServer((req,res)=>{
    
-    res.end("<h1 style='color: #FF5733;'>Welcome</h1>");
+    res.end("<h1 style='color: #FF5733;'>SIH Registration</h1>");
 });
 
 
