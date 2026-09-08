@@ -11,7 +11,7 @@ let teams = [
     members:5,},
     ];
 let nextID=3;
-export const getALLTeams =()=> teams;
+export const getAllTeams =()=> teams;
 export const getTeamById =(id)=> teams.find((teams)=> teams.id===id);
 export const addTeam = (newTeam)=>{
     const team ={id : nestId++,newTeam};
