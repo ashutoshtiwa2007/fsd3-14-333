@@ -4,7 +4,7 @@ let teams = [
     tl:'Aashish',
     email:"ashi.raj@gmail.com",
     members:6,},
-    {id : 1,
+    {id : 2,
     tname:"CodeCrafters", 
     tl:'Manisha Singh',
     email:"mani.singh@gmail.com",
@@ -14,7 +14,7 @@ let nextID=3;
 export const getAllTeams =()=> teams;
 export const getTeamById =(id)=> teams.find((teams)=> teams.id===id);
 export const addTeam = (newTeam)=>{
-    const team ={id : nestId++,newTeam};
+    const team = { id: nextID++, ...newTeam };
     teams.push(team);
     return team;
     
@@ -26,8 +26,8 @@ export const updateTeamById =(id,updateTeam)=>{
     return team;
 }
 export const deleteTeam =(id) =>{
-    const index = teams.findIndex((team)=team.id===id);
+    const index = teams.findIndex((teams)=>teams.id===id);
     if(index==-1)return false;
-    team.splice(index,1);
+    teams.splice(index,1);
     return true;
 }
