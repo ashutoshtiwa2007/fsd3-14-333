@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node prg1.js",
-    "dev": "nodemon prg1.js"
+    "start": "node prg2.js",
+    "dev": "nodemon prg2.js"
   },
   "keywords": [],
   "author": "",
