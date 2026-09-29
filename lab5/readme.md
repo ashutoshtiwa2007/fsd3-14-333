@@ -1,6 +1,6 @@
 ### Express 
 fast, unpolished , minimalist web framework for Node.js
-1,create npm project `npm init -y`
+1.create npm project `npm init -y`
 2.update pakage.json
 `type:module`
 3.install nodemon with `npm i nodemon -D`
