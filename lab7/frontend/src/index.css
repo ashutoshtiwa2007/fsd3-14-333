@@ -33,3 +33,24 @@
   font: times;
   padding: 5px;
 }
+
+.pen{
+  padding: 10px;
+  border: 2px solid black;
+
+}
+.pen img{
+  height:300px;
+}
+
+.pen h1{
+  font-size: 1.5 rem;
+}
+
+.pen button{
+  width: 200px;
+  background-color: red;
+  color: white;
+  font: times;
+  padding: 5px;
+}

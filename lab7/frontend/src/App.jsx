@@ -1,3 +1,4 @@
+import Book from "./components/Book"
 const b1 = {
   picUrl: "https://m.media-amazon.com/images/I/61aYZnnMaHL._AC_UY218_.jpg",
   bname: "React Design Pattern",
@@ -13,19 +14,6 @@ const b2 = {
   rating: 4.5,
 };
 
-function Book(props) {
-  const{rating, bname, price, quantity, picUrl}=props.book;
-  return (
-    <div className="book">
-      <img src={picUrl} alt={bname} />
-      <h1>{props.bname}</h1>
-      <h2>Price: {props.price}</h2>
-      <h3>Quantity: {props.quantity}</h3>
-      <h4>Rating: {props.rating}</h4>
-      <button>BUY NOW</button>
-    </div>
-  );
-}
 
 export default function App() {
   return (
