@@ -28,3 +28,6 @@
 
    ```
 - inline css: we use two curly bracket with style attributes all the css property must be single word for e.g text-align becomes textAlign(camel case)
+- rafce arrow func
+-rfce normal fun
+

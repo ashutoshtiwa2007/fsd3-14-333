@@ -1,4 +1,6 @@
 import Book from "./components/Book"
+import Pen from "./components/Pen"
+import {p1,p2} from "./components/Pen_lib"
 const b1 = {
   picUrl: "https://m.media-amazon.com/images/I/61aYZnnMaHL._AC_UY218_.jpg",
   bname: "React Design Pattern",
@@ -15,16 +17,31 @@ const b2 = {
 };
 
 
+// export default function App() {
+//   return (
+//     <>
+//       <h1>Online book Store
+//       </h1>
+//       <div className="container">
+//       <Book book={b1} />
+//       <Book book={b2} />
+//       <Book book={b1} />
+//       <Book book={b2} />
+//       </div>
+//     </>
+//   );
+// }
+
 export default function App() {
   return (
     <>
       <h1>Online book Store
       </h1>
       <div className="container">
-      <Book book={b1} />
-      <Book book={b2} />
-      <Book book={b1} />
-      <Book book={b2} />
+      <Pen pen={p1} />
+      <Pen pen={p2} />
+      <Pen pen={p1} />
+      <Pen pen={p2} />
       </div>
     </>
   );
